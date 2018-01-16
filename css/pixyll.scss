@@ -44,6 +44,11 @@ footer {
   text-align: center;
   padding: 20px;
   box-shadow: 0 0 3px rgba(0,0,0,0.2);
+  h3,h2,h4 {
+   & + img {
+      margin-top: 2em;
+    }
+  }
   ul {
     text-align: left;
   }
@@ -54,6 +59,7 @@ footer {
     max-width: 750px;
   }
 }
+
 
 .grey .post-content {
   background: #7f8c8d;
@@ -74,6 +80,20 @@ footer {
     }
 }
 
+.button {
+    display: inline-block;
+    padding: 8px 16px;
+    transition: none;
+    text-decoration: none;
+    border-bottom: none;
+    background: none;
+    font-size: 1.25rem;
+    border-bottom: none;
+    &:hover {
+      color: inherit;
+      background: #fafafa!important;
+    }
+}
 .PageNavigation {
   a {
     display: inline-block;
@@ -96,4 +116,11 @@ footer {
     width: 90%;
     left: 5%;
   }
+}
+
+.section {
+  &:first-child {
+    margin-top: 150px;
+  }
+  margin: 50px 0;
 }
