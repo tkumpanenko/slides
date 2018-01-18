@@ -30,14 +30,21 @@ exclude:
   - Gemfile.lock
 
 collections:
-  slides:
+  tutorials:
     output: true
-    permalink: /:name/
+    permalink: /:collection/:path/
+  topic:
+    output: true
+    permalink: /:collection/:path/
 
 defaults:
   - scope:
       path: ""
-      type: slides
+      type: "tutorials"
     values:
-      layout: post
-      permalink: /:name/
+      layout: "tutorials"
+  - scope:
+      path: ""
+      type: "topic"
+    values:
+      layout: "topic"
