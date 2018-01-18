@@ -14,13 +14,13 @@ layout: default
 				<ul class="tutorial-nav">
 					{% for topic in topics %}
 					<li {% if page.url == topic.url %} class="active" {% endif %}>
-						<a href="{{topic.url| prepend: site.baseurl}}">{{ topic.title }}</a>
+						<a href="{{topic.url | prepend: site.baseurl | prepend: site.url}}">{{ topic.title }}</a>
 						<ul class="tutorial-sub-nav">
 							{% assign current_topic = groups | where: "name", topic.slug | first %}
 							{% assign current_posts = current_topic.items | sort: "order" %}
 							{% for item in current_posts %}
 							<li {% if page.url == item.url %} class="active" {% endif %}>
-								<a href="{{ item.url | prepend: site.baseurl }}">{{item.title}}</a>
+								<a href="{{ item.url  | prepend: site.baseurl | prepend: site.url }}">{{item.title}}</a>
 							</li>
 							{% endfor %}
 						</ul>
