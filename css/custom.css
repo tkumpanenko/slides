@@ -59,3 +59,18 @@ div.download-link a:hover {
   .tutorial-content h4 {
     text-align: center;
     font-size: 1.5em; }
+
+.section {
+  margin-bottom: 35px; }
+
+.vertical-centering .main-content {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.vertical-centering .post-content {
+  max-width: 1000px;
+  text-align: center; }
+
+.vertical-centering .wrap {
+  padding-top: 0 !important; }
