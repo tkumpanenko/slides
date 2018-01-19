@@ -7,3 +7,45 @@ date: 2018-01-18 19:31:06 +0000
 <h4>Create input file: Edit outputfile</h4>
 
 <img src="{{site.url}}{{site.baseurl}}/images/024.png" alt="">
+
+<p>To create the inputfiles: Step 3 Edit the outputfile</p>
+<p>After the fuzzy matching, you will be redirected to the output of this URL <a href="http://scrapecalctool.scibizinformatics.com/admin/base/company_source_scraper/">http://scrapecalctool.scibizinformatics.com/admin/base/company_source_scraper/</a>
+</p>
+
+<p>Right now, normally only these columns are filled:
+	<ul>
+		<li>Comp name from db (which is the same company name as the company name from the Companies-table)</li>
+		<li>Comp fuzzy name: company name of the best matching company, using fuzzy logic. If it is empty, this means that none of the companies had a higher score than the fuzzy-threshold.</li>
+		<li>Fuzzy score: score of the fuzzy comparison</li>
+	</ul>
+</p>
+
+<p>The rest of the columns remain empty. </p>
+
+<p>The process of fuzzy matching happens as follows:
+	<ul>
+		<li>First the total fuzzy score is checked for all the companies</li>
+		<li>If none of the companies have a score higher than the threshold, the partial fuzzy score is computed.</li>
+		<li>If after the comparison, still none of the companies have a score higher than the threshold, the fields remain empty.</li>
+	</ul>
+</p>
+
+<p>As you can see from the results, fuzzy matching does not always work well. Sometimes companies are matched which should not be matched. So manual editing is needed. 
+</p>
+
+<p>Action (used to automate this process a bit): 
+	<ul>
+		<li>Clear the fuzzy name: select the records and start action: this will empty the two fields (Comp fuzzy name and Fuzzy score) for the selected records</li>
+		<li>Get the best match ... : the opposite of the previous action: 2 fields are filled in</li>
+		<li>Fill the URLs: fills the fields comp best match url (this info comes from table <a href="http://scrapecalctool.scibizinformatics.com/admin/base/company_source_output_companies/">List of URLs from scrapers for fuzzy matching</a>, if the field comp fuzzy name is filled in, this will always be filled) and comp db url (this comes from table <a href="http://scrapecalctool.scibizinformatics.com/admin/base/company_input/">Company URLs</a>, if there is a record for the url in the table, else it remains empty)</li>
+		<li>Over-ride the db-url with the best_match_url: only if the best_match_url is filled in</li>
+		<li>Over-ride the db-url with the best_match_url: only if the best_match_url is filled in. The difference with the previous is that the <a href="http://scrapecalctool.scibizinformatics.com/admin/base/company_input/">Company URLs</a> is also updated in this case. </li>
+	</ul>
+</p>
+
+<p>In general, after the scraping and fuzzy matching, you run these 2 actions: 
+	<ul>
+		<li>Fill the URLs: to fill best_match_url and if needed the two columns left of this one</li>
+		<li>Over-ride the db-url with the best_match_url (second option): this creates/updates the records in the <a href="http://scrapecalctool.scibizinformatics.com/admin/base/company_input/">Company URLs</a></li>
+	</ul>
+</p>
