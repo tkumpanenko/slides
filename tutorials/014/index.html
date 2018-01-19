@@ -587,9 +587,27 @@
 		<div class="small-12 offset-large-1 large-8 medium-8 columns">
 			<div class="tutorial-content">
 				<h4>Input: Import from Database Tables</h4>
-<a class="text-center" href="http://scrapecalctool.scibizinformatics.com/admin/login/?next=/admin/base/admin_scripts/">Scraper scripts</a>
+<a class="text-center" href="http://scrapecalctool.scibizinformatics.com/admin/base/admin_scripts/">Scraper scripts</a>
 
 <img src="https://tkumpanenko.github.io/slides/images/014.png" alt="">
+
+<p>Different tables are used as input for python (and can be modified through the admin views):</p>
+
+<p><a href="http://scrapecalctool.scibizinformatics.com/admin/base/admin_scripts/">Scraper scripts</a> table contains the different scraper-scripts.
+<br>
+When you click on it, you see the list of the different scrapers which have been defined (left upper picture). 
+<br>
+As can be seen in the right corner at the top, you can recover previous versions (version control exists for changes) or you can add new scrapers.
+</p>
+
+<p>When you click on a scraper-name, you get the information on that particular scraper (left bottom picture). It is also possible here to recover the previous versions of the script.
+</p>
+
+<p>If the parameter “debug_mode” in config is set to False, the scripts from the database (visible in the admin views) will be used.
+<br>
+If the parameter “debug_mode” in config is set to True, the scripts from the files stored on the server will be used.​
+</p>
+
 
 				<!-- Pagination links -->
 <div class="pagination">
