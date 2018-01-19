@@ -4,9 +4,20 @@ topic: normal-run
 order: 3
 date: 2018-01-18 19:31:06 +0000
 ---
-
-
 <h4>Export</h4>
 
 <img src="{{site.url}}{{site.baseurl}}/images/053.png" alt="">
 
+<p>The export has two components:<br>
+Python exports the data to the MySQL-database (EICC, EITI and the company information can be viewed). The data can also be edited, but this will have no influence on the next run. 
+</p>
+
+<p>Python also exports the data into a new excel-file, which is named YYYYMMDD_HHmmSS.xlsx. At this moment, the excel file contains all the outputs of the scrapers, all the metrics, the EICC-output, the EITI-output and the wikirate-output, the RTB-information. </p>
+
+<p>Based on the choices of the user, the number of outputs can be limited. So just before the export, there is a screen to allow the user to:
+	<ul>
+		<li>Duplicate the existing records (the original record should not be modified) => this will be called an export-“profile”</li>
+		<li>Modify the new profile, by selecting or deselecting scraper-outputs or metrics </li>
+		<li>Start the action to export the desired selection. </li>
+	</ul>
+</p>
