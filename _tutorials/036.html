@@ -14,7 +14,9 @@ date: 2018-01-18 19:31:06 +0000
 <p>In order to add a new scraper, you need to do the following:  
 	<ul>
 		<li>Add a script in the <a href="http://scrapecalctool.scibizinformatics.com/admin/base/admin_scripts/">Scraper scripts</a>-table</li>
-		<li>In spyder (part of anaconda-program) or notepad or any other editor, you make a new file and copy this: <br>
+		<li>In spyder (part of anaconda-program) or notepad or any other editor, you make a new file and copy this:
+
+<p>
 		#################################################
 def scrape_CSR(self, CSR_Company_Name, task_id, log_file, teller):
         try:
@@ -64,6 +66,7 @@ def scrape_CSR(self, CSR_Company_Name, task_id, log_file, teller):
         return output
 
 ##############################################
+  </p>
 		</li>
 
 		<li>In the function, you define the function: 
@@ -83,4 +86,3 @@ def scrape_CSR(self, CSR_Company_Name, task_id, log_file, teller):
 		
 	</ul>
 </p>
-
