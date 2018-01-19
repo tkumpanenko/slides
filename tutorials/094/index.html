@@ -590,12 +590,31 @@
 
 <ul>
 	<li>Create a scraper in 
-		<br><a href="#">http://scrapecalctool.scibizinformatics.com/admin/base/input_scrapers_output/ </a>
+		<br><a href="http://scrapecalctool.scibizinformatics.com/admin/base/input_scrapers_output/">http://scrapecalctool.scibizinformatics.com/admin/base/input_scrapers_output/ </a>
 	</li>
 	<li>Set all the fields correctly as described below</li>
 	<li>Run the new scraper with few companies and only this scraper selected</li>
 </ul>
 
+<p>Step 2: create record in <a href="http://scrapecalctool.scibizinformatics.com/admin/base/input_scrapers_output/">http://scrapecalctool.scibizinformatics.com/admin/base/input_scrapers_output/</a> <br>
+Scraper output name should start with SCR_O, eg SCR_O_AAA_output <br> 
+Description can be anything you want  <br>
+fk_scraper has to be the script you created in step 1  <br>
+Scraper_abbr should be equal to the code in the line "class AAA_Scraper(object):" in this case "AAA"  <br>
+Class_name  should be equal to the code in the line "class AAA_Scraper(object):" in this case "AAA_Scraper"  <br>
+Function should be equal to the code in the line "def AAA_Scrape(self, company_name, task_id, log_file, teller):" in this case "AAA_Scrape"  <br>
+Function outputfield: should be equal to the code in the line "return {'AAA_output':AAA_output}" in this case "AAA_output" (the first one)  <br>
+The 4 following fields can remain as they are  <br>
+Input1 = SCR_I_company This corresponds to line "def AAA_Scrape(self, company_name, task_id, log_file, teller):". the 3 last parameters are added for logging purposes, even though they are not used in this script, they will be automatically added by the main program, but they don't need to be set in this table.  <br>
+There is only 1 real input-parameter, so the 4 following input-variables can be left blank  <br>
+Show-scraper has to be checked if you want to use it  <br>
+defaultvalue has to be set to 'N' (with the quotes)  <br>
+Output datatype: has to be set to TEXT  <br>
+The rest of the table is not relevant for this variable
+
+</p>
+
+<p>When you run the main program, it will now check if the company is in the company list scraped from the website</p>
 
 				<!-- Pagination links -->
 <div class="pagination">
