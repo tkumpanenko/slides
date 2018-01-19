@@ -3,7 +3,7 @@ module TutsPostList
     def generate(site)
 
       puts "Collect tuts links"
-      topics = site.collections['topic'].docs.sort_by { |s| s.data['order'] }
+      topics = site.collections['topic'].docs.sort_by { |s| s.data['order'].to_i }
       tutorials = site.collections['tutorials'].docs.group_by{ |s| s.data['topic'] }
 
       tuts = Array.new
