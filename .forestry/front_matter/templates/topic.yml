@@ -1,4 +1,6 @@
 ---
+pages:
+- _topic/046.html
 hide_body: false
 fields:
 - name: layout
