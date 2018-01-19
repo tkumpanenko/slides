@@ -1,7 +1,7 @@
 ---
 title: Adding a new scraper (3)
 topic: delete-edit-scrappers
-order: 5
+order: 05
 date: 2018-01-18 19:31:06 +0000
 ---
 <h4>Adding a new scraper (3)</h4>
@@ -16,8 +16,8 @@ date: 2018-01-18 19:31:06 +0000
 		<li>Add a script in the <a href="http://scrapecalctool.scibizinformatics.com/admin/base/admin_scripts/">Scraper scripts</a>-table</li>
 		<li>In spyder (part of anaconda-program) or notepad or any other editor, you make a new file and copy this:
 
-<p>
-		#################################################
+
+{% highlight python %}
 def scrape_CSR(self, CSR_Company_Name, task_id, log_file, teller):
         try:
             output = [0]            
@@ -64,9 +64,8 @@ def scrape_CSR(self, CSR_Company_Name, task_id, log_file, teller):
             print tb
             raise t, v, tb       
         return output
+{% endhighlight %}
 
-##############################################
-  </p>
 		</li>
 
 		<li>In the function, you define the function: 

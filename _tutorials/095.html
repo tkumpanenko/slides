@@ -15,7 +15,7 @@ date: 2018-01-18 19:31:06 +0000
 
 <p>Step 1: create the scraper in <a href="http://scrapecalctool.scibizinformatics.com/admin/base/admin_scripts/">http://scrapecalctool.scibizinformatics.com/admin/base/admin_scripts/</a>, give a unique name, leave the two checkboxes (obsolete and run_once to false), copy-paste the following script:</p>
 
-<p>
+{% highlight python %}
 """
 v 1.000.000: created
 Purpose: get list of companies from AAA
@@ -60,6 +60,6 @@ class AAA_Scraper(object):
            else: 
                AAA_output = 'N'
            return {'AAA_output':AAA_output}
-</p>
+{% endhighlight %}
 
 <p>In this script, you need to replace AAA by something more relevant. You need to replace the url and you need to replace the "companies = ..."-line </p>
