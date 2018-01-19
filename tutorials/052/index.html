@@ -590,6 +590,29 @@
 
 <img src="https://tkumpanenko.github.io/slides/images/052.png" alt="">
 
+<p>The normal process of the python program is as follows: </p>
+<p>The user has to select the years and import the file to the server.</p>
+<p>As soon as the multiscraper-file has been imported, the python code is running: 
+	<ul>
+		<li>First all the files/sheets (ie Multiscraper-file, BBG/DS-files) are  imported into python. </li>
+		<li>Then the scraping starts: using the constance parameter (to define if the database-script has to be used or if it should rather use the file saved on the server), using the scraper-tables, it starts scraping the different websites.</li>
+		<li>Once the scraping is finished, the data is unpivotted, so you have a record per year.</li>
+		<li>Then the datapoints are computed: based on the input_all_datapoints-table, the datapoints are computed (1st, 2nd and 3rd preference)</li>
+		<li>Then the data is normalised by the column defined in the input_all_datapoints-table.</li>
+		<li>Then the average of the sector is computed</li>
+		<li>Outliers are removed</li>
+		<li>Then the datapoints from the multiscraper.xlsx-file (sheets starting with “DP_”) are added
+			<ul>
+				<li>If a “year”-column exists, each year is added</li>
+				<li>If no “year”-column is present, only the current year is updated</li>
+			</ul>
+		</li>
+		<li>Based on the data from input_all_metrics, the metrics are computed (or not, if show_metrics is set to false). </li>
+		<li>The data is then sorted and formatted to make sure that the output has a good format. </li>
+	</ul>
+</p>
+
+<p>The last step is to define the export, what needs to be exported and what doesn’t. </p>
 
 
 				<!-- Pagination links -->
