@@ -589,10 +589,33 @@
 				<h4>Adding a new scraper (7)</h4>
 
 <up>
-	<li>3.1. Insert records into the <a href="#">Scraper variables</a> -table</li>
+	<li>3.1. Insert records into the <a href="http://scrapecalctool.scibizinformatics.com/admin/base/input_scrapers_output/">Scraper variables</a> -table</li>
 	<img src="https://tkumpanenko.github.io/slides/images/040.png" alt="">
 </ul>
 
+<p>In order to add a new scraper, you need to do the following:  
+	<ul>
+		<li>Insert records into the <a href="http://scrapecalctool.scibizinformatics.com/admin/base/input_scrapers_output/">Scraper variables</a>-table to configure the output-variables</li>
+		<li>Go to admin-view again (click on base in breadcrumbs)</li>
+		<li>Click <a href="http://scrapecalctool.scibizinformatics.com/admin/base/input_scrapers_output/">Scraper variables</a></li>
+		<li>Click Add record</li>
+		<li>Give a good name (my scraper-names all start with SCR_O_)</li>
+		<li>Select the CSR-scraper from the list. It should be visible now in the dropdown-menu</li>
+		<li>Select a good abbreviation name. If the scraper is an abbreviation, I use that (GRI/CSR), else i abbreviate it to two letters (FA for facebook, TW for twitter). </li>
+		<li>Copy-paste or type the classname you defined in step 1 in field classname</li>
+		<li>Copy-paste or type the functionname you defined in step 1 in field function</li>
+		<li>Copy-paste or type the outputname of the funtion (name after “return”-field) you defined in step 1 in field function outputfield</li>
+		<li>If the output is a list (as is the case with CSR), you fill in the index in that list in the field function output index.</li>
+		<li>If the output is a dictionnary, you leave the field function output index empty</li>
+		<li>Input 1 should be exactly like in step 2  (name starting with SCR_I)</li>
+		<li>Show_Scraper is by default set to True. I would leave it like that, unless you don’t want the website to be scraped</li>
+		<li>Datatype of the output should be set still (values: TEXT, INTEGER, DECIMAL are accepted)</li>
+		<li>If needed, define an output format, thousand separator and decimal separator for decimal datatypes</li>
+		<li>Click on save</li>
+		<li>Once this record has been added, the scraper will be called by the main program.</li>
+		<li>The variable defined in step 3 (starting with SCR_O_)  can be used by the metrics (fields arg1, arg2 and arg3 in <a href="http://scrapecalctool.scibizinformatics.com/admin/base/input_all_scrapers/">Match uploaded columns to scraper inputs</a> in admin view) or can be outputted by itself. </li>
+	</ul>
+</p>
 
 				<!-- Pagination links -->
 <div class="pagination">
