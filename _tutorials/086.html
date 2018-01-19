@@ -4,8 +4,27 @@ topic: run-specific-scrappers
 order: 2
 date: 2018-01-18 19:31:06 +0000
 ---
-
-
-<h4>Select which scrapers will run Using <a href="#">Scraper scripts</a></h4>
+<h4>Select which scrapers will run Using <a href="http://scrapecalctool.scibizinformatics.com/admin/base/admin_scripts/">Scraper scripts</a></h4>
 
 <img src="{{site.url}}{{site.baseurl}}/images/086.png" alt="">
+
+<p>To select which scrapers will run, there are different options:</p>
+
+<p>The easiest (but less flexible) method is probably to use the scraper-scripts-table.</p>
+
+<p>4 actions have been defined: 
+	<ul>
+		<li>to check the checkboxes for all of the records (except the obsoletes), </li>
+		<li>to deselect them all,</li>
+		<li>to check the checkboxes for selected records and</li>
+		<li>to deselect for the selected records</li>
+	</ul>
+</p>
+
+<p>In the first 2 cases, you don't need to select records, in the last 2 cases you do need to select the records. When you use the actions or update the records manually, the field show_scraper of the table "scraper variables" (which is still the one used for defining whether a scraper-outputvariable will be scraped or not) will automatically be updated too. The scraper-variable-table is more detailed than the Scraper-scripts-table. The correct order to update is to update the Scraper scripts and then the Scraper variables
+</p>
+
+<p>A button has been added which allows you to do the same as the actions ((un)check some scrapers)
+</p>
+
+
