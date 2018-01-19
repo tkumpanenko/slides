@@ -589,6 +589,54 @@
 				<h4>Input: Import inputfiles</h4>
 
 <img src="https://tkumpanenko.github.io/slides/images/006.png" alt="">
+<p>The input of the python program consists of several types:</p>
+<ul>
+	<li>Inputfiles: _Multiple_Webscraper_.xlsx has the input-information for all the scrapers and should have the following sheets and columns
+      <ul>
+		<li>Input
+          <ul>
+            <li>ISIN</li>
+            <li>Company</li>
+            <li>BBG Code</li>
+            <li>DS Code</li>
+            <li>Sector</li>
+            <li>Input-parameters for the different scrapers</li>
+          </ul>  
+        </li>
+		</ul>
+  	</li>
+  
+	<li>Any number of sheets starting with “DP_”: these are datapoints, whose source is not DS nor BBG
+      <ul>
+            <li>These sheets should start with “DP_”</li>
+            <li>The first column in the sheet should be “ISIN”</li>
+            <li>There are two options for the second column
+			<ul>
+	<li>Either there is a “year” field
+		<ul>
+			<li>In that case the datapoint will be filled in for all the years</li>
+		</ul>
+	</li>
+	<li>Or there is no “year” field
+		<ul>
+			<li>In this case the datapoint will only be filled in for the current year</li>
+		</ul>
+	</li>
+</ul>        
+        </li>
+          </ul> 
+  
+  </li>
+<li>The file _Multiple_Webscraper_.xlsx will be imported by the user at the start of the run.</li>
+<li>BBG_2010.xlsx – BBG_2016.xlsx and DS_2010.xlsx-DS_2016.xlsx: These files are stored on the server in the input-directory and will be imported at each run. No action is required from the user to import them.	</li>
+<li>There is a possibility to import companies using an excel file</li>
+<li>Scraper-specific inputfiles:
+<ul>
+  <li>There is a possibility to import invest iq data from their pdfs using an excel file</li>
+  <li>RTB-input</li>
+</ul>
+</li>
+</ul>
 
 				<!-- Pagination links -->
 <div class="pagination">
