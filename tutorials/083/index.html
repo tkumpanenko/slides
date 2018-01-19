@@ -590,6 +590,22 @@
 
 <img src="https://tkumpanenko.github.io/slides/images/083.png" alt="">
 
+<p>Then you go to <a href="http://scrapecalctool.scibizinformatics.com/admin/base/company_source_scraper/">Company sources output</a> (http://scrapecalctool.scibizinformatics.com/admin/base/company_source_scraper/) to see the output.</p>
+
+<p>In the output, you can see the company that fuzzywuzzy thinks matches best with the companies from the source (good guide in this case). </p>
+
+<p>Each company from the scraper (good guide) will be compared to each company in the database, using fuzzy wuzzy.</p>
+
+<p>
+	<ul>
+		<li>If the fuzzywuzzy-score-value is less than the threshold (determined in step 1 in the constance config), then the company name remains empty and the value remains 0. </li>
+		<li>If the value of the column comp fuzzy name is already filled in, then the value will also not be updated (to avoid that if you correct a value, the next time you run it, it would be overwritten by a wrong value).</li>
+		<li>If the value of the column comp fuzzy name is empty and the fuzzywuzzy-value is higher than the threshold-value, then there will be an update and the comp fuzzy name-value will be filled in and you will see the value of the fuzzy-score.</li>
+	</ul>
+</p>
+
+<p>In this case, the output is always empty, because good year does not seem to have any match above 50%
+</p>
 
 				<!-- Pagination links -->
 <div class="pagination">
