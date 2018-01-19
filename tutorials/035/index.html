@@ -593,6 +593,53 @@
 	<img src="https://tkumpanenko.github.io/slides/images/035.png" alt="">
 </ul>
 
+<p>In order to add a new scraper, you need to do the following:  
+	<ul>
+		<li>Add a script in the <a href="http://scrapecalctool.scibizinformatics.com/admin/base/admin_scripts/">Scraper scripts</a>-table</li>
+		<li>In spyder (part of anaconda-program) or notepad or any other editor,  you make a new file and copy this: <br>
+		#################################################
+"""
+v 1.000.000: created
+Purpose: get output from CSR
+"""
+import requests
+from requests.packages.urllib3.util.retry import Retry
+from requests.adapters import HTTPAdapter
+from base.models import Company_Input, Admin_File
+import os 
+from django.conf import settings
+import json
+import sys
+from datetime import datetime 
+s = requests.Session()
+retries = Retry(total=10,
+                backoff_factor=0.1,
+                status_forcelist=[ 500, 502, 503, 504 ])
+s.mount('http://', HTTPAdapter(max_retries=retries)) 
+base_path = settings.BASE_DIR
+parent_dir = os.path.split(base_path)[0]
+output_dir = os.path.join(parent_dir, 'output')
+CSR_USER     = "ahow"
+CSR_PASSWORD = “*****"
+class CSR_Scraper(object):
+    
+    def __init__(self):
+        pass
+    
+    def scrape_CSR(self, CSR_Company_Name, task_id, log_file, teller):
+##############################################
+		</li>
+
+		<li>First lines are comments to indicate the version + the purpose of the program. Not really required.</li>
+		<li>Then some necessary libraries are imported. Some libraries can be removed, others might need to be added. This is required for all the scrapers. </li>
+		<li>Then some variables are defined (general ones for retrying if the target-website is temporarily down, then the program retries (10 times in this case, each time, it waits a bit longer (twice as long as when it failed) and local ones. This is recommended for all the scrapers. </li>
+		<li>Then the class name is defined (class  CSR_Scraper()). This is required.  </li>
+		<li>Def Init is required for all the scrapers (else you can’t call it)</li>
+		<li>Then a function is defined. This is required. </li>
+		<li>The parameters of the functions are (self: required, the input-variables: required (number of input-variables will vary per scraper), task_id, log_file, teller). These last 3 are needed for error-logging and are required, else the main program will fail on this. </li>
+	</ul>
+</p>
+
 
 				<!-- Pagination links -->
 <div class="pagination">
