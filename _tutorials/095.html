@@ -4,13 +4,62 @@ topic: create-new-tables
 order: 2
 date: 2018-01-18 19:31:06 +0000
 ---
-
-
 <h4>Create a scraper like EICC (step 2)</h4>
 
 <ul>
 	<li>Create a scraper in  
-		<br><a href="#">http://scrapecalctool.scibizinformatics.com/admin/base/admin_scripts/</a>
+		<br><a href="http://scrapecalctool.scibizinformatics.com/admin/base/admin_scripts/">http://scrapecalctool.scibizinformatics.com/admin/base/admin_scripts/</a>
 	</li>
 	<li>Copy the script and modify it</li>
 </ul>
+
+<p>Step 1: create the scraper in <a href="http://scrapecalctool.scibizinformatics.com/admin/base/admin_scripts/">http://scrapecalctool.scibizinformatics.com/admin/base/admin_scripts/</a>, give a unique name, leave the two checkboxes (obsolete and run_once to false), copy-paste the following script:</p>
+
+<p>
+"""
+v 1.000.000: created
+Purpose: get list of companies from AAA
+"""
+import requests
+import time
+from bs4 import BeautifulSoup
+from requests.packages.urllib3.util.retry import Retry
+from requests.adapters import HTTPAdapter
+import random
+from base.models import *
+s = requests.Session()
+retries = Retry(total=10,
+                backoff_factor=0.1,
+                status_forcelist=[ 500, 502, 503, 504 ])
+s.mount('http://', HTTPAdapter(max_retries=retries)) 
+request_headers = {
+    "Accept-Language": "en-US,en;q=0.5",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:40.0) Gecko/20100101 Firefox/40.0",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    "Referer": "http://facebook.com",
+    "Connection": "keep-alive" 
+}    
+class AAA_Scraper(object):
+    def __init__(self):
+        pass
+    
+    def AAA_Scrape(self, company_name, task_id, log_file, teller):
+        AAA_output = 'N'            
+        url = "http://www.eiccoalition.org/about/members/"        
+        print(url)        
+        rand_wait = random.uniform(0.5, 3.0)
+        time.sleep(rand_wait)
+       
+        resp = s.get(url, headers = request_headers)
+        
+        if resp.status_code == 200:
+           soup = BeautifulSoup(resp.text, 'html.parser') 
+           companies = [x.string.encode('utf8') for x in  soup.find_all('h4', {'class':'memberTitle'})[0].parent.find_all('li') if x.string != None]
+           if company_name in companies:
+               AAA_output = 'Y'
+           else: 
+               AAA_output = 'N'
+           return {'AAA_output':AAA_output}
+</p>
+
+<p>In this script, you need to replace AAA by something more relevant. You need to replace the url and you need to replace the "companies = ..."-line </p>
