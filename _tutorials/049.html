@@ -4,6 +4,8 @@ topic: metric-formula-type
 order: 1
 date: 2018-01-18 19:31:06 +0000
 ---
-
-
 <img src="{{site.url}}{{site.baseurl}}/images/049.png" alt="">
+
+<p>As can be seen in the picture above, you can create a custom formula. It has to have the formula_type-field set to “=formula”</p>
+<p>What will happen is that this formula will be converted into a more complicated version with checks if the values are NaN and checks for division by 0.</p>
+<p>The formula itself will not be checked. If there are mistakes, it will be displayed as an error on the interface and will not be computed, but it will (normally) not crash on it.</p>  
