@@ -593,6 +593,80 @@
 	<img src="https://tkumpanenko.github.io/slides/images/036.png" alt="">
 </ul>
 
+<p>In order to add a new scraper, you need to do the following:  
+	<ul>
+		<li>Add a script in the <a href="http://scrapecalctool.scibizinformatics.com/admin/base/admin_scripts/">Scraper scripts</a>-table</li>
+		<li>In spyder (part of anaconda-program) or notepad or any other editor, you make a new file and copy this: <br>
+		#################################################
+def scrape_CSR(self, CSR_Company_Name, task_id, log_file, teller):
+        try:
+            output = [0]            
+            # make sure you don't waste time on empty strings for the input-variables            
+            if CSR_Company_Name != '':
+                # here comes the code  
+                url =  ""                      
+                # get the source code
+                resp = s.get(url)
+                # check that the status_code == 200
+                if resp.status_code == 200: 
+                    print("do something")        
+                    
+                else:  # log that this url failed in company input-table  
+                    c = Company_Input.objects.get(comp_scraper_input_value = url )
+                    c.comp_scraper_input_status = 'FAILURE'
+                    c.comp_scraper_failure_reason = str(resp.status_code)
+                    c.save() 
+                    
+                    # log it in the log-file 
+                    date_ = str(datetime.strftime(datetime.now(), '%Y-%m-%d %H:%M:%S'))
+                    msg = "scraper " + url + " failed: " + str(resp.status_code)
+                    with open(os.path.join(output_dir, log_file), "r") as LF:
+                        data = json.load(LF)
+                        data.append([str(teller).zfill(4),date_,msg])
+                    with open(os.path.join(output_dir, log_file), "w") as LF:
+                        LF.write(json.dumps(data))
+            # if the scraper fails                    
+        except Exception as exc:
+            print("failed")        
+            Admin_F = Admin_File.objects.get(file_task_id = task_id)
+            Admin_F.file_filename_log = log_file
+            Admin_F.file_status = 'FAILED'
+            Admin_F.save()  
+            date_ = str(datetime.strftime(datetime.now(), '%Y-%m-%d %H:%M:%S'))
+            msg = "scraper " + "FAILED: " + exc.message
+            with open(os.path.join(output_dir, log_file), "r") as LF:
+                data = json.load(LF)
+                data.append(['0250',date_,msg])
+            with open(os.path.join(output_dir, log_file), "w") as LF:
+                LF.write(json.dumps(data))
+    
+            t, v, tb = sys.exc_info()
+            print tb
+            raise t, v, tb       
+        return output
+
+##############################################
+		</li>
+
+		<li>In the function, you define the function: 
+			<ul>
+				<li>You have a try, except-part (if any error occurs, it goes into the except part and this is logged, shown on the main interface-screen). This is recommended for all the scrapers.</li>
+				<li>In the try-part:
+					<ul>
+						<li>Output-variable is initialised</li>
+						<li>If input-variable is empty, do nothing</li>
+						<li>Define the url</li>
+						<li>Check if the url is valid, else log it</li>
+						<li>If it is valid, scrape the website. In this example, this part has not been developed</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		
+	</ul>
+</p>
+
+
 
 				<!-- Pagination links -->
 <div class="pagination">
