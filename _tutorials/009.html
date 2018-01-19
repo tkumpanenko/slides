@@ -4,7 +4,6 @@ topic: importing-files
 order: 4
 date: 2018-01-18 19:31:06 +0000
 ---
-
 <h4>Importing data using the inputfile</h4>
 
 <ul>
@@ -12,3 +11,13 @@ date: 2018-01-18 19:31:06 +0000
 	<li>DS-files</li>
 	<li>Datapoint-files</li>
 </ul>
+
+<p>There is only 1 way to import BBG/DS-files for the moment. This is done using the inputfiles (see later). 
+</p>
+<p>The naming convention for the BBG/DS-files is as follows: <br>
+DS/BBG then ‘_’ then the year, eg DS_2015 or BBG_2015
+</p>
+<p>An important remark about the BBG/DS-files: there is a version of these files in the input-directory of the server (from the last runs), so if the files have not changed, they don’t need to be added as sheets in the inputfile, because this just creates an additional long delay while loading the file. The file will be uploaded (from your local pc to the python, will then be exported as excel and will then be reimported from the server into python.). All these actions are useless if the files have not changed. 
+</p>
+<p>Datapoint-files can only be imported using the inputfile. They are not stored on the server.  
+</p>
