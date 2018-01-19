@@ -4,9 +4,17 @@ topic: data-in-database
 order: 6
 date: 2018-01-18 19:31:06 +0000
 ---
-
-
 <h4>Input: Import from Database Tables</h4>
-<a href="#">Define datapoints</a>
+<a href="http://scrapecalctool.scibizinformatics.com/admin/base/input_all_datapoints/">Define datapoints</a>
 
 <img src="{{site.url}}{{site.baseurl}}/images/018.png" alt="">
+
+<p>Different tables are used as input for python (and can be modified through the admin views):
+</p>
+
+<p><a href="http://scrapecalctool.scibizinformatics.com/admin/base/input_all_datapoints/">Define datapoints</a>:in this table you can define all the datapoints that are stored in the BBG and DS-files.  This corresponds to the excel sheet “Matching” form the old Calculations.xlsx-file.
+</p>
+<p>If the datapoint is created before the multiscraper-file is uploaded, this datapoint will be computed. 
+</p>
+<p>Based on the code of the first preference (eg BBG for accounts_payable), for each year (eg for 2016), for each isin-code, python will search in the BBG-file (in this case BBG2016.xlsx) for the column BS_ACCT_PAYABLE. This either gives 1 value or no value for that ISIN-code. 
+</p>
