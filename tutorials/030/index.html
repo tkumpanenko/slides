@@ -593,6 +593,38 @@
 	<li>Step 2: fuzzy matching</li>
 </ul>
 
+<p>The first step of the fuzzy-matching, is to scrape the website and retrieve the company list.
+	<ul>
+		<li>Note in constance, you can put the variable FUZZY_COMPANY_LIST_FROM_SCRAPER to false and the scraper will be skipped and the company_list will be retrieved from the database. </li>
+		<li>The output is saved in the table <a href="http://scrapecalctool.scibizinformatics.com/admin/base/company_source_output_companies/">List of URLs from scrapers for fuzzy matching</a></li>
+	</ul>
+</p>
+
+<p>The second step is that the company list (retrieved in step or already stored in the database) is compared to the list of companies from the database:
+	<ul>
+		<li>Based on each company in the database, the package fuzzywuzzy is called. </li>
+		<li>For each company in the website-list, compare the database-company with this company name, but only if the value of the field comp_fuzzy_name is empty (this is done to avoid that values that have been corrected manually are overwritten by the automatic process). 
+			<ul>
+				<li>For both company names, exclude the words that are in the table <a href="http://scrapecalctool.scibizinformatics.com/admin/base/company_source_exclude_words/">Words to exclude from company matching</a> and then put both as uppercase. 
+					<ul>
+						<li>First the long words-to-exclude are replaced by empty strings</li>
+						<li>Then the shorter ones</li>
+					</ul>
+				</li>
+				<li>Then the total fuzz-score is computed</li>
+				<li>If this score =100%, you exit from the loop, else you keep on looping to check if there are better matches</li>
+				<li>If this score is not 100% but higher than the previous highest score and higher than the threshold defined in the constance variables, the previous high score is overwritten by the new one and the best_match_company_name is overwritten too. </li>
+				<li>When all the companies of the scraper have been compared with all the companies of the database and we still don’t have a value higher than the threshold, partial fuzzy starts:
+					<ul>
+						<li>The exact same procedure is done, except to check if the value = 100%</li>
+					</ul>
+				</li>
+				<li>The last step is to write the results to the table <a href="http://scrapecalctool.scibizinformatics.com/admin/base/company_source_scraper/">Output from fuzzy matching</a></li>
+			</ul>
+		</li>
+	</ul>
+</p>
+
 				<!-- Pagination links -->
 <div class="pagination">
 	<div class="row">
