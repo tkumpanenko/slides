@@ -586,9 +586,32 @@
 		</div>
 		<div class="small-12 offset-large-1 large-8 medium-8 columns">
 			<div class="tutorial-content">
-				<h4>Select which scrapers will run Using <a href="#">Scraper variables</a></h4>
+				<h4>Select which scrapers will run Using <a href="http://scrapecalctool.scibizinformatics.com/admin/base/input_scrapers_output/">Scraper variables</a></h4>
 
 <img src="https://tkumpanenko.github.io/slides/images/087.png" alt="">
+
+<p>To select which scrapers will run, there are different options:</p>
+
+<p>The better method is to use <a href="http://scrapecalctool.scibizinformatics.com/admin/base/input_scrapers_output/">Scraper variables</a> directly
+</p>
+
+<p>5 actions have been defined:  
+	<ul>
+		<li>to check the checkboxes for all of the records, </li>
+		<li>to deselect them all,</li>
+		<li>to check the checkboxes for selected records and</li>
+		<li>to uncheck for the selected records </li>
+		<li>Duplicate an existing record</li>
+	</ul>
+</p>
+
+<p>For action 1 to 4, you don’t have to select any records, for action 5, you need to select the record you want to duplicate.</p>
+
+<p>Action 3 and 4 will redirect you to a new page which has a dropdown to select the scraper you want to check or uncheck.
+Action 5 has just been added for makign things easier. There are many fields in this table and often you need to repeat the same information many times, so it seemed smarter to automate this. </p>
+
+<p>In the first 2 cases, you don't need to select records, in the last 2 cases you do need to select the records. When you use the actions or update the records manually, the field show_scraper of the table "scraper variables" (which is still the one used for defining whether a scraper-outputvariable will be scraped or not) will automatically be updated too. The scraper-variable-table is more detailed than the Scraper-scripts-table. The correct order to update is to update the Scraper scripts and then the Scraper variables </p>
+
 
 
 				<!-- Pagination links -->
