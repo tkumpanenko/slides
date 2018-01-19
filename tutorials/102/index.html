@@ -589,13 +589,19 @@
 				<h4>Step 1: scraping input</h4>
 
 <ul>
-	<li><a href="#">http://scrapecalctool.scibizinformatics.com/admin/base/company/</a></li>
-	<li><a href="#">http://scrapecalctool.scibizinformatics.com/admin/base/company_input/</a>: glassdoor URL and eekingalpha</li>
+	<li><a href="http://scrapecalctool.scibizinformatics.com/admin/base/company/">http://scrapecalctool.scibizinformatics.com/admin/base/company/</a></li>
+	<li><a href="http://scrapecalctool.scibizinformatics.com/admin/base/company_input/">http://scrapecalctool.scibizinformatics.com/admin/base/company_input/</a>: glassdoor URL and eekingalpha</li>
 </ul>
 
 <img src="https://tkumpanenko.github.io/slides/images/102.png" alt="">
 
-
+<p>Scraping glassdoor:
+	<ul>
+		<li>You need a company_id, this is done by selecting the company in <a href="http://scrapecalctool.scibizinformatics.com/admin/base/company/">http://scrapecalctool.scibizinformatics.com/admin/base/company/</a></li>
+		<li>Glassdoor: For that company, you have to make sure that you have a URL in <a href="http://scrapecalctool.scibizinformatics.com/admin/base/company_input/">http://scrapecalctool.scibizinformatics.com/admin/base/company_input/</a>, else you won’t scrape anything.</li>
+		<li>Seekingalpha: For that company, you have to make sure that you have a URL in <a href="http://scrapecalctool.scibizinformatics.com/admin/base/company_input/">http://scrapecalctool.scibizinformatics.com/admin/base/company_input/</a>, else you won’t scrape anything. In the example above, the URL of apple is used for ABB, so this needs to be corrected still.</li>
+	</ul>
+</p>
 
 				<!-- Pagination links -->
 <div class="pagination">
