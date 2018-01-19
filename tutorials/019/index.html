@@ -587,9 +587,32 @@
 		<div class="small-12 offset-large-1 large-8 medium-8 columns">
 			<div class="tutorial-content">
 				<h4>Input: Import from Database Tables</h4>
-<a href="#">Define metrics</a>
+<a href="http://scrapecalctool.scibizinformatics.com/admin/base/input_all_metrics/">Define metrics</a>
 
 <img src="https://tkumpanenko.github.io/slides/images/019.png" alt="">
+
+<p>Different tables are used as input for python (and can be modified through the admin views):
+</p>
+
+<p><a href="http://scrapecalctool.scibizinformatics.com/admin/base/input_all_metrics/">Define metrics</a>: in this table you can define all the metrics.  This corresponds to the excel sheet “All_metrics” form the old Upload.xlsx-file.
+</p>
+<p>If the metric is created before the multiscraper-file is uploaded, this metric will be computed. 
+</p>
+<p>For this table, version_control has also been added, so that any change can be reverted. 
+</p>
+<p>As input for the metric, you can use either datapoints (defined in <a href="http://scrapecalctool.scibizinformatics.com/admin/base/input_all_datapoints/">Define datapoints</a>) or outputs from the scrapers (defined in <a href="http://scrapecalctool.scibizinformatics.com/admin/base/input_scrapers_output/">Scraper variables</a>). A wrong definition of a scraper will not make the program crash, but the problem will be visible on the interface. 
+</p>
+<p>There are 5 formula-type at the moment: 
+<ul>
+	<li>None: the output will be equal to an empty string (‘’)</li>
+	<li>“=DP1/DP2”: simple quotient of two datapoints (or scraper outputs). Some checks will be performed, such as division by 0, replacing “nan”-values by 0, etc.</li>
+	<li>“=DP1”</li>
+	<li>“(DP1+DP2)/DP3”: same as DP1/DP2, but using a sum</li>
+	<li>“mult * DP1/DP2”: same as DP1/DP2, but using a multiplication factor</li>
+</ul>
+</p>
+<p>Arg1, arg2, arg3, arg4 are used for the formula-types.</p>
+<p>Show_metrics, defines if this metric should be computed or not. </p>
 
 				<!-- Pagination links -->
 <div class="pagination">
