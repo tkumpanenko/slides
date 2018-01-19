@@ -4,9 +4,28 @@ topic: data-in-database
 order: 3
 date: 2018-01-18 19:31:06 +0000
 ---
-
-
 <h4>Input: Import from Database Tables</h4>
-<a href="#">Scraper scripts</a>
+<a href="http://scrapecalctool.scibizinformatics.com/admin/base/input_scrapers_output/">Scraper variables</a>
 
 <img src="{{site.url}}{{site.baseurl}}/images/015.png" alt="">
+
+<p>Different tables are used as input for python (and can be modified through the admin views):
+</p>
+
+
+<p><a href="http://scrapecalctool.scibizinformatics.com/admin/base/input_scrapers_output/">Scraper variables</a> table contains the information for calling the scraper and generating the output-variables. This table only needs to be modified if a scraper is created or if a scraper is modified.  This table is technical, but needs to be set correctly, if you want the scraper to be called and the output of the scraper exported. 
+</p>
+
+<p>In this table, some technical fields need to be set (classname and functionname): they should correspond to the classname and functionnames defined in the table. You also need to define the name of the outputfield and the order in which the output is generated (if the output is a list/array).
+</p>
+
+<p>At this moment, two different output types are possible in a scraper: 
+<ul>
+	<li>Dictionnaries (syntax: starting with “{“ and ending with “}”)
+	</li>
+	<li>Lists (arrays) (syntax: starting with “[“ and ending with “]”)  
+	</li>
+</ul>
+</p>
+<p>If the output is a list, you need to define the function output index, which corresponds to the position of the variable in the list.  
+</p>
