@@ -4,8 +4,12 @@ topic: scraper-output-variables
 order: 1
 date: 2018-01-18 19:31:06 +0000
 ---
-
-
 <h4>Running a scraper based on other scrapers</h4>
 
 <img src="{{site.url}}{{site.baseurl}}/images/090.png" alt="">
+
+<p>In some cases, you might want to create a variable which uses the outputparameters of the scrapers as input-parameters. Eg glassdoor, vorkers and many other employer-rating websites generate a review and ratings from employees. You might want to compute the weighted averages of these ratings. </p>
+
+<p>The first thing to do is to create a new “scraper” in the table <a href="http://scrapecalctool.scibizinformatics.com/admin/base/admin_scripts/">Scraper scripts</a> (left picture).  The important part in this is that the script starts with “z_”, to make sure that the other scraper-scripts are executed before this script (else you get errors during the run).</p>
+
+<p>The second part is to create a record or several records based on the new scraper in table <a href="http://scrapecalctool.scibizinformatics.com/admin/base/input_scrapers_output/">Scraper variables</a>. </p>
