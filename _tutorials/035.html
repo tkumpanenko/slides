@@ -14,8 +14,10 @@ date: 2018-01-18 19:31:06 +0000
 <p>In order to add a new scraper, you need to do the following:  
 	<ul>
 		<li>Add a script in the <a href="http://scrapecalctool.scibizinformatics.com/admin/base/admin_scripts/">Scraper scripts</a>-table</li>
-		<li>In spyder (part of anaconda-program) or notepad or any other editor,  you make a new file and copy this: <br>
-		#################################################
+		<li>In spyder (part of anaconda-program) or notepad or any other editor,  you make a new file and copy this:
+
+<p>
+#################################################
 """
 v 1.000.000: created
 Purpose: get output from CSR
@@ -46,6 +48,8 @@ class CSR_Scraper(object):
     
     def scrape_CSR(self, CSR_Company_Name, task_id, log_file, teller):
 ##############################################
+</p>
+  
 		</li>
 
 		<li>First lines are comments to indicate the version + the purpose of the program. Not really required.</li>
