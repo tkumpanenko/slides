@@ -592,23 +592,23 @@
 <p>Normally, you start with an “empty” database, which means there are no companies and most of the tables are empty. 
 </p>
 <p>
-  These tables should NOT be emptied (or the program will not function properly anymore): 
-Scraper scripts: table containing the scripts
-Scraper variables : table contains the parameters for the different scrapers
-Wikirate metric list: the metric lists for the wikirate-scraper
-Match uploaded columns to scraper inputs: match between input-excelfile and python names
-Invest IQ Input: can be emptied, but then the investIQ will not work properly
-Ranking the brands rankinglists: used for RTB, list of rankinglists
-Ranking the brands currency converter table: used for RTB: currency converter table
-Define datapoints: datapoint definition
-Define metrics: define metrics
-List of scrapers: list of scrapers used for getting the URLs for the inputfile
-Words to exclude from company matching: words that are replaced by an empty string 
-Scripts to extract all company names: these are other scraper scripts
-WIPO Codes and their descriptions: this table can be deleted, but then other parts will not work anymore
-Config: constants 
-
+  These tables should NOT be emptied (or the program will not function properly anymore):<br> 
+<a href="http://scrapecalctool.scibizinformatics.com/admin/base/admin_scripts/">Scraper scripts</a>: table containing the scripts<br>
+<a href="http://scrapecalctool.scibizinformatics.com/admin/base/input_scrapers_output/">Scraper variables</a>: table contains the parameters for the different scrapers<br>
+<a href="http://scrapecalctool.scibizinformatics.com/admin/base/input_wikirate_metric_list/">Wikirate metric list</a>: the metric lists for the wikirate-scraper<br>
+<a href="http://scrapecalctool.scibizinformatics.com/admin/base/input_all_scrapers/">Match uploaded columns to scraper inputs</a>: match between input-excelfile and python names<br>
+<a href="http://scrapecalctool.scibizinformatics.com/admin/base/invest_iq_input/">Invest IQ Input</a>: can be emptied, but then the investIQ will not work properly<br>
+<a href="http://scrapecalctool.scibizinformatics.com/admin/base/rtb_rankinglist/">Ranking the brands rankinglists</a>: used for RTB, list of rankinglists<br>
+<a href="http://scrapecalctool.scibizinformatics.com/admin/base/rtb_currency_converter/">Ranking the brands currency converter table</a>: used for RTB: currency converter table<br>
+<a href="http://scrapecalctool.scibizinformatics.com/admin/base/input_all_datapoints/">Define datapoints</a>: datapoint definition
+<a href="http://scrapecalctool.scibizinformatics.com/admin/base/input_all_metrics/">Define metrics</a>: define metrics<br>
+<a href="http://scrapecalctool.scibizinformatics.com/admin/base/company_source/">List of scrapers</a>: list of scrapers used for getting the URLs for the inputfile<br>
+<a href="http://scrapecalctool.scibizinformatics.com/admin/base/company_source_exclude_words/">Words to exclude from company matching</a>: words that are replaced by an empty string <br>
+<a href="http://scrapecalctool.scibizinformatics.com/admin/base/company_source_scraper_scripts/">Scripts to extract all company names</a>: these are other scraper scripts<br>
+<a href="http://scrapecalctool.scibizinformatics.com/admin/base/patents_code_desc/">WIPO Codes and their descriptions</a>: this table can be deleted, but then other parts will not work anymore<br>
+<a href="http://scrapecalctool.scibizinformatics.com/admin/constance/config/">Config</a>: constants <br>
 </p>
+<p>The rest of the tables can be emptied safely. Just be aware that in some cases foreign keys have been defined, so if you delete the primary keys, the child records will also be deleted at the same time (you will get a screen specifying what will be deleted and you will need to confirm it). Eg company is used as a foreign key in many tables (eg Company inputs). So when you delete the companies, you will be asked also to delete the company input-records linked to those companies.  </p>
 
 				<!-- Pagination links -->
 <div class="pagination">
