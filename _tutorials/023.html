@@ -4,8 +4,33 @@ topic: create-an-inputfile
 order: 2
 date: 2018-01-18 19:31:06 +0000
 ---
-
-
 <h4>Create input file: Run scrapers</h4>
 
 <img src="{{site.url}}{{site.baseurl}}/images/023.png" alt="">
+
+<p>
+	To create the inputfiles: Step 1 Run the scrapers &amp; Step 2 Run fuzzy matching
+</p>
+<ul>
+	<li>Click on <a href="http://scrapecalctool.scibizinformatics.com/admin/base/company_source/">List of scrapers</a></li>
+	<li>Select the scraper</li>
+	<li>Select the action and click on go. This action removes the words to exclude and compares all the company names of the database with all the names of the company names from the scrapers. This generates a fuzzy score. The best match is copied in the company name of the table  </li>
+	<li>You will be redirected to another webpage and a progress bar will show you the progress</li>
+	<li>Two possibilities depending on the value of FUZZY_COMPANY_LIST_FROM_SCRAPER </li>
+	<li>If the value is set to True:
+		<ul>
+			<li>Scraper connects to website and scrapes the values and saves the values in the table <a href="http://scrapecalctool.scibizinformatics.com/admin/base/company_source_output_companies/">List of URLs from scrapers for fuzzy matching</a></li>
+			<li>Once the scraper is done, the fuzzy matching starts</li>
+			<li>After that, you will be redirected to the page with the output of the scraper (<a href="http://scrapecalctool.scibizinformatics.com/admin/base/company_source_scraper/">Output from fuzzy matching</a>)</li>
+		</ul>
+	</li>
+	<li>If the value is set to False:
+		<ul>
+			<li>No scraping</li>
+			<li>The fuzzy matching starts using the values from the table <a href="http://scrapecalctool.scibizinformatics.com/admin/base/company_source_output_companies/">List of URLs from scrapers for fuzzy matching</a></li>
+			<li>After that, you will be redirected to the page with the output of the scraper (<a href="http://scrapecalctool.scibizinformatics.com/admin/base/company_source_scraper/">Output from fuzzy matching</a>)</li>
+		</ul>
+	</li>
+	<li>The fuzzy matching starts automatically after that. </li>
+	<li>Once this is finished, you will be redirected to the output, which you can edit</li>
+</ul>
