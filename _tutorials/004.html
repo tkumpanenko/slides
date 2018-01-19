@@ -4,8 +4,26 @@ topic: empty-the-database
 order: 1
 date: 2018-01-18 19:31:06 +0000
 ---
-
-
 <h4>Empty the database</h4>
 
 <img src="{{site.url}}{{site.baseurl}}/images/004.png" alt="">
+<p>Normally, you start with an “empty” database, which means there are no companies and most of the tables are empty. 
+</p>
+<p>
+  These tables should NOT be emptied (or the program will not function properly anymore): 
+Scraper scripts: table containing the scripts
+Scraper variables : table contains the parameters for the different scrapers
+Wikirate metric list: the metric lists for the wikirate-scraper
+Match uploaded columns to scraper inputs: match between input-excelfile and python names
+Invest IQ Input: can be emptied, but then the investIQ will not work properly
+Ranking the brands rankinglists: used for RTB, list of rankinglists
+Ranking the brands currency converter table: used for RTB: currency converter table
+Define datapoints: datapoint definition
+Define metrics: define metrics
+List of scrapers: list of scrapers used for getting the URLs for the inputfile
+Words to exclude from company matching: words that are replaced by an empty string 
+Scripts to extract all company names: these are other scraper scripts
+WIPO Codes and their descriptions: this table can be deleted, but then other parts will not work anymore
+Config: constants 
+
+</p>
